@@ -1,1 +1,1 @@
-AddArtifacts
+Adventurers Artifacts
