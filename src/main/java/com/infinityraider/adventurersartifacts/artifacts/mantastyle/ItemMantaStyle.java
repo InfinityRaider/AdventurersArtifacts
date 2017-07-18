@@ -42,9 +42,9 @@ public class ItemMantaStyle extends ItemArtifactMeleeWeapon {
             if (stack.getItemDamage() == 0 && otherOk) {
                 EntityReplicate.getReplicates(player).forEach(EntityReplicate::setDead);
                 this.createReplicas(player, player.getHeldItem(EnumHand.MAIN_HAND), player.getHeldItem(EnumHand.OFF_HAND));
-                stack.setItemDamage(ModuleMantaStyle.getInstance().getCooldown());
+                stack.setItemDamage(this.getModule().getCooldown());
                 if (other != null && other.getItem() instanceof ItemMantaStyle) {
-                    other.setItemDamage(ModuleMantaStyle.getInstance().getCooldown());
+                    other.setItemDamage(this.getModule().getCooldown());
                 }
             }
         } else if (ctrl) {

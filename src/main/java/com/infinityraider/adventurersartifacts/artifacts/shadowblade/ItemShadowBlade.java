@@ -1,7 +1,6 @@
 package com.infinityraider.adventurersartifacts.artifacts.shadowblade;
 
 import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
-import com.infinityraider.adventurersartifacts.artifacts.mantastyle.ModuleMantaStyle;
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +32,7 @@ public class ItemShadowBlade extends ItemArtifactMeleeWeapon {
         if (shift) {
             if (!player.getEntityWorld().isRemote && stack.getItemDamage() == 0) {
                 InvisibilityHandler.getInstance().setInvisible(player);
-                stack.setItemDamage(ModuleMantaStyle.getInstance().getCooldown());
+                stack.setItemDamage(this.getModule().getCooldown());
             }
         }
     }
