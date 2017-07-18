@@ -37,7 +37,7 @@ import java.util.*;
 public class ItemMantaStyle extends ItemWithModelBase implements IDualWieldedWeapon {
     public static final Set<Block> EFFECTIVE_ON = getItemAxeEffectiveBlocks();
 
-    public ItemMantaStyle() {
+    protected ItemMantaStyle() {
         super("manta_style");
         this.setMaxStackSize(1);
         this.setCreativeTab(AdventurersArtifacts.MOD_TAB);
@@ -135,6 +135,7 @@ public class ItemMantaStyle extends ItemWithModelBase implements IDualWieldedWea
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public List<Tuple<Integer, ModelResourceLocation>> getModelDefinitions() {
         return ImmutableList.of(new Tuple<>(0, new ModelResourceLocation(Reference.MOD_ID.toLowerCase() + ":manta_style", "inventory")));
     }
@@ -143,7 +144,7 @@ public class ItemMantaStyle extends ItemWithModelBase implements IDualWieldedWea
         if (!player.getEntityWorld().isRemote) {
             int amount = 0;
             boolean mainIsManta = main.getItem() instanceof ItemMantaStyle;
-            boolean offIsManta = off.getItem() instanceof ItemMantaStyle;
+            boolean offIsManta = off != null && off.getItem() instanceof ItemMantaStyle;
             amount += mainIsManta ? 1 : 0;
             amount += offIsManta ? 1 : 0;
             if (amount <= 0) {
@@ -220,6 +221,7 @@ public class ItemMantaStyle extends ItemWithModelBase implements IDualWieldedWea
                 list.add("" + TextFormatting.ITALIC + TextFormatting.DARK_GRAY + TranslationHelper.translateToLocal("adventurers_artifacts.tooltip.manta_style_l2"));
                 list.add("" + TextFormatting.ITALIC + TextFormatting.DARK_GRAY + TranslationHelper.translateToLocal("adventurers_artifacts.tooltip.manta_style_l3"));
                 list.add("" + TextFormatting.ITALIC + TextFormatting.DARK_GRAY + TranslationHelper.translateToLocal("adventurers_artifacts.tooltip.manta_style_l4"));
+                list.add("" + TextFormatting.ITALIC + TextFormatting.DARK_GRAY + TranslationHelper.translateToLocal("adventurers_artifacts.tooltip.dual_wield"));
             } else {
                 list.add("" + TextFormatting.ITALIC + TextFormatting.DARK_GRAY + TranslationHelper.translateToLocal("adventurers_artifacts.tooltip.more_info"));
             }

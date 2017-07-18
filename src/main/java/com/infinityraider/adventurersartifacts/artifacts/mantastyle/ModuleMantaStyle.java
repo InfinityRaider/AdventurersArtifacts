@@ -89,13 +89,6 @@ public class ModuleMantaStyle implements IArtifactModule {
                 "The attack damage of the manta style (sword damage as reference: wood = 3 | stone = 4 | iron = 5 | diamond = 6"));
         this.setAttackSpeed(modConfig.getFloat("manta style attack speed", this.getName(), 1.6F, 0, 10,
                 "The attack cooldown of the manta style, smaller is faster (sword speed as reference: 2.4)"));
-
-        return this;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public ModuleMantaStyle loadClientConfiguration(Configuration modConfig) {
         return this;
     }
 
@@ -121,12 +114,6 @@ public class ModuleMantaStyle implements IArtifactModule {
     @Override
     public IArtifactModule activateRequiredInfinityLibModules() {
         ModuleDualWield.getInstance().activate();
-        return this;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IArtifactModule activateRequiredInfinityLibModulesClient() {
         return this;
     }
 }
