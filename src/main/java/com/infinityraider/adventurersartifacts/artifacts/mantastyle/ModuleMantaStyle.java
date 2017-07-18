@@ -1,6 +1,6 @@
 package com.infinityraider.adventurersartifacts.artifacts.mantastyle;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModule;
+import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
 import com.infinityraider.infinitylib.entity.EntityRegistryEntry;
 import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
@@ -11,7 +11,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ModuleMantaStyle implements IArtifactModule {
+public class ModuleMantaStyle implements IArtifactModuleWeaponWithAbility {
     private static final ModuleMantaStyle INSTANCE = new ModuleMantaStyle();
 
     public static ModuleMantaStyle getInstance() {
@@ -47,28 +47,34 @@ public class ModuleMantaStyle implements IArtifactModule {
         return this;
     }
 
+    @Override
     public int getCooldown() {
         return cooldown;
     }
 
+    @Override
     public ModuleMantaStyle setCooldown(int time) {
         this.cooldown = time <= 0 ? 0 : time;
         return this;
     }
 
+    @Override
     public int getAttackDamage() {
         return attackDamage;
     }
 
+    @Override
     public ModuleMantaStyle setAttackDamage(int dmg) {
         this.attackDamage = dmg < 0 ? 0 : dmg;
         return this;
     }
 
+    @Override
     public double getAttackSpeed() {
         return attackSpeed;
     }
 
+    @Override
     public ModuleMantaStyle setAttackSpeed(double speed) {
         this.attackSpeed = speed < 0 ? 0 : speed;
         return this;
@@ -112,7 +118,7 @@ public class ModuleMantaStyle implements IArtifactModule {
     }
 
     @Override
-    public IArtifactModule activateRequiredInfinityLibModules() {
+    public ModuleMantaStyle activateRequiredInfinityLibModules() {
         ModuleDualWield.getInstance().activate();
         return this;
     }

@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts;
 
 import com.google.common.collect.ImmutableList;
+import com.infinityraider.adventurersartifacts.artifacts.etherealblade.ModuleEtherealBlade;
 import com.infinityraider.adventurersartifacts.artifacts.mantastyle.ModuleMantaStyle;
 import com.infinityraider.adventurersartifacts.artifacts.shadowblade.ModuleShadowBlade;
 import com.infinityraider.adventurersartifacts.registry.ModPotionRegistry;
@@ -15,6 +16,7 @@ import java.util.List;
 public interface IArtifactModule {
     static List<IArtifactModule> modules() {
         return ImmutableList.of(
+                ModuleEtherealBlade.getInstance(),
                 ModuleMantaStyle.getInstance(),
                 ModuleShadowBlade.getInstance()
         );

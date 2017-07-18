@@ -1,6 +1,6 @@
 package com.infinityraider.adventurersartifacts.artifacts.shadowblade;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModule;
+import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
 import com.infinityraider.adventurersartifacts.registry.ModPotionRegistry;
 import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
@@ -11,7 +11,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ModuleShadowBlade implements IArtifactModule {
+public class ModuleShadowBlade implements IArtifactModuleWeaponWithAbility {
     private static final ModuleShadowBlade INSTANCE = new ModuleShadowBlade();
 
     public static ModuleShadowBlade getInstance() {
@@ -40,28 +40,34 @@ public class ModuleShadowBlade implements IArtifactModule {
         return this;
     }
 
+    @Override
     public int getCooldown() {
         return cooldown;
     }
 
+    @Override
     public ModuleShadowBlade setCooldown(int time) {
         this.cooldown = time <= 0 ? 0 : time;
         return this;
     }
 
+    @Override
     public int getAttackDamage() {
         return attackDamage;
     }
 
+    @Override
     public ModuleShadowBlade setAttackDamage(int dmg) {
         this.attackDamage = dmg < 0 ? 0 : dmg;
         return this;
     }
 
+    @Override
     public double getAttackSpeed() {
         return attackSpeed;
     }
 
+    @Override
     public ModuleShadowBlade setAttackSpeed(double speed) {
         this.attackSpeed = speed < 0 ? 0 : speed;
         return this;
@@ -73,7 +79,7 @@ public class ModuleShadowBlade implements IArtifactModule {
     }
 
     @Override
-    public IArtifactModule loadConfiguration(Configuration modConfig) {
+    public ModuleShadowBlade loadConfiguration(Configuration modConfig) {
         this.setDuration(modConfig.getInt("shadow blade invisibility duration", this.getName(), 400, 0, 9000000,
                 "The duration of shadow blade's invisibility in ticks"));
         this.setCooldown(modConfig.getInt("shadow blade cooldown", this.getName(), 600, 0, 9000000,
@@ -86,13 +92,13 @@ public class ModuleShadowBlade implements IArtifactModule {
     }
 
     @Override
-    public IArtifactModule registerMessages(INetworkWrapper networkWrapper) {
+    public ModuleShadowBlade registerMessages(INetworkWrapper networkWrapper) {
         networkWrapper.registerMessage(MessageInvisibility.class);
         return this;
     }
 
     @Override
-    public IArtifactModule registerEventHandlers(IProxyBase proxy) {
+    public ModuleShadowBlade registerEventHandlers(IProxyBase proxy) {
         proxy.registerEventHandler(EntityTargetingHandler.getInstance());
         proxy.registerEventHandler(InvisibilityHandler.getInstance());
         return this;
@@ -100,19 +106,19 @@ public class ModuleShadowBlade implements IArtifactModule {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IArtifactModule registerEventHandlersClient(IClientProxyBase proxy) {
+    public ModuleShadowBlade registerEventHandlersClient(IClientProxyBase proxy) {
         proxy.registerEventHandler(RenderPlayerHandler.getInstance());
         return this;
     }
 
     @Override
-    public IArtifactModule registerPotions(ModPotionRegistry registry, Configuration modConfig) {
+    public ModuleShadowBlade registerPotions(ModPotionRegistry registry, Configuration modConfig) {
         registry.registerPotion(this.potionShadowBlade, modConfig, this.getName());
         return this;
     }
 
     @Override
-    public IArtifactModule activateRequiredInfinityLibModules() {
+    public ModuleShadowBlade activateRequiredInfinityLibModules() {
         ModuleDualWield.getInstance().activate();
         return this;
     }
