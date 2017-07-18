@@ -2,6 +2,7 @@ package com.infinityraider.adventurersartifacts.registry;
 
 import com.infinityraider.adventurersartifacts.artifacts.debugger.ItemDebugger;
 import com.infinityraider.adventurersartifacts.artifacts.mantastyle.ModuleMantaStyle;
+import com.infinityraider.adventurersartifacts.artifacts.shadowblade.ModuleShadowBlade;
 import net.minecraft.item.Item;
 
 public class ModItemRegistry {
@@ -13,9 +14,11 @@ public class ModItemRegistry {
 
     private ModItemRegistry() {
         this.itemMantaStyle = ModuleMantaStyle.getInstance().itemMantaStyle;
+        this.itemShadowBlade = ModuleShadowBlade.getInstance().itemShadowBlade;
         this.itemDebugger = new ItemDebugger();
     }
 
     public final Item itemMantaStyle;
+    public final Item itemShadowBlade;
     public final Item itemDebugger;
 }

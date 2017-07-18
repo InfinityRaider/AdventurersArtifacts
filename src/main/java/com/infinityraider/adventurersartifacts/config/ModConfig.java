@@ -20,6 +20,10 @@ public class ModConfig {
     //debug
     public boolean debug;
 
+    public Configuration getConfiguration() {
+        return this.config;
+    }
+
     public void init(FMLPreInitializationEvent event) {
         if(config == null) {
             config = new Configuration(event.getSuggestedConfigurationFile());

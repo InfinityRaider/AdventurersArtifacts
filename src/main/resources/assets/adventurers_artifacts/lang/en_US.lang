@@ -1,12 +1,27 @@
 //items
+//-----
 item.adventurers_artifacts:manta_style.name=Manta Style
+item.adventurers_artifacts:shadow_blade.name=Shadow Blade
+
 
 //creative tab
 itemGroup.adventurers_artifacts=Adventurers Artifacts
 
+
+//potions
+adventurers_artifacts:potion.shadow_blade=Shadow Walk
+
+
 //tooltips
+//--------
 adventurers_artifacts.tooltip.more_info=Hold shift for more information
+
+adventurers_artifacts.tooltip.dual_wield=(This is a dual wielded weapon, LMB will use the left hand, RMB the right hand)
+
 adventurers_artifacts.tooltip.manta_style_l1=An axe made of reflective materials that causes confusion amongst enemy ranks
 adventurers_artifacts.tooltip.manta_style_l2=Should be dual wielded for full effect
 adventurers_artifacts.tooltip.manta_style_l3=Use <Sneak> + click to create an illusion for each manta style
 adventurers_artifacts.tooltip.manta_style_l4=Use <Sprint> + click to swap with target illusion of yourself
+
+adventurers_artifacts.tooltip.shadow_blade_l1=The blade of a fallen king, it allows you to move unseen and strike from the shadows
+adventurers_artifacts.tooltip.shadow_blade_l2=Use <Sneak> + click to become fully invisible, interacting with the world will break invisibility
