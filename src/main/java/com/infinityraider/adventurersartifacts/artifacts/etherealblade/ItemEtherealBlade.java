@@ -7,6 +7,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 
+import java.util.Optional;
+
 public class ItemEtherealBlade extends ItemArtifactMeleeWeapon {
     protected ItemEtherealBlade() {
         super("ethereal_blade");
@@ -30,9 +32,14 @@ public class ItemEtherealBlade extends ItemArtifactMeleeWeapon {
     @Override
     public void onItemUsed(ItemStack stack, EntityPlayer player, boolean shift, boolean ctrl, EnumHand hand) {
         if (shift) {
-            if (!player.getEntityWorld().isRemote && stack.getItemDamage() == 0) {
-
-                stack.setItemDamage(this.getModule().getCooldown());
+            if (!player.getEntityWorld().isRemote) {
+                Optional<EntityGhostlyRemnant> ghost = EntityGhostlyRemnant.getGhostlyRemnant(player);
+                if(ghost.isPresent()) {
+                    ghost.get().setDead();
+                } else if(stack.getItemDamage() == 0) {
+                    player.getEntityWorld().spawnEntityInWorld(new EntityGhostlyRemnant(player, ModuleEtherealBlade.getInstance().getDuration()));
+                    stack.setItemDamage(this.getModule().getCooldown());
+                }
             }
         }
     }

@@ -1,10 +1,12 @@
 package com.infinityraider.adventurersartifacts.artifacts.etherealblade;
 
 import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
+import com.infinityraider.infinitylib.entity.EntityRegistryEntry;
 import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
 import com.infinityraider.infinitylib.proxy.base.IClientProxyBase;
 import com.infinityraider.infinitylib.proxy.base.IProxyBase;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -17,14 +19,22 @@ public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
     }
 
     public final ItemEtherealBlade itemEtherealBlade;
+    public final EntityRegistryEntry<EntityGhostlyRemnant> entityGhostlyRemnant;
 
     private int duration;
     private int cooldown;
     private int attackDamage;
     private double attackSpeed;
 
+    @SuppressWarnings("unchecked")
     private ModuleEtherealBlade() {
         this.itemEtherealBlade = new ItemEtherealBlade();
+        entityGhostlyRemnant = new EntityRegistryEntry<>(EntityGhostlyRemnant.class, "entity.replicate")
+                .setTrackingDistance(64)
+                .setUpdateFrequency(1)
+                .setVelocityUpdates(true)
+                .setRenderFactory(EntityGhostlyRemnant.RenderFactory.getInstance())
+                .setEntityTargetedBy(EntityMob.class);
     }
 
     public int getDuration() {
