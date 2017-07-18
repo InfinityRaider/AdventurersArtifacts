@@ -7,8 +7,6 @@ import com.infinityraider.infinitylib.network.INetworkWrapper;
 import com.infinityraider.infinitylib.proxy.base.IClientProxyBase;
 import com.infinityraider.infinitylib.proxy.base.IProxyBase;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -21,6 +19,9 @@ public class ModuleMantaStyle implements IArtifactModule {
     }
 
     private int lifeTime;
+    private int cooldown;
+    private int attackDamage;
+    private double attackSpeed;
 
     public final ItemMantaStyle itemMantaStyle;
     public final EntityRegistryEntry<EntityReplicate> entityReplicate;
@@ -46,15 +47,31 @@ public class ModuleMantaStyle implements IArtifactModule {
         return this;
     }
 
-    public void setPlayerPosition(EntityPlayer player, double x, double y, double z) {
-        if(!player.getEntityWorld().isRemote && player instanceof EntityPlayerMP) {
-            new MessageSetPlayerPosition(x, y, z).sendTo((EntityPlayerMP) player);
-        } else {
-            player.setPosition(x, y, z);
-            player.prevPosX = x;
-            player.prevPosY = y;
-            player.prevPosZ = z;
-        }
+    public int getCooldown() {
+        return cooldown;
+    }
+
+    public ModuleMantaStyle setCooldown(int time) {
+        this.cooldown = time <= 0 ? 0 : time;
+        return this;
+    }
+
+    public int getAttackDamage() {
+        return attackDamage;
+    }
+
+    public ModuleMantaStyle setAttackDamage(int dmg) {
+        this.attackDamage = dmg < 0 ? 0 : dmg;
+        return this;
+    }
+
+    public double getAttackSpeed() {
+        return attackSpeed;
+    }
+
+    public ModuleMantaStyle setAttackSpeed(double speed) {
+        this.attackSpeed = speed < 0 ? 0 : speed;
+        return this;
     }
 
     @Override
@@ -64,8 +81,14 @@ public class ModuleMantaStyle implements IArtifactModule {
 
     @Override
     public ModuleMantaStyle loadConfiguration(Configuration modConfig) {
-        this.setReplicaLifeTime(modConfig.getInt("manta style illusions lifetime", this.getName(), 6000, 0, 9000000,
+        this.setReplicaLifeTime(modConfig.getInt("manta style illusions lifetime", this.getName(), 600, 0, 9000000,
                 "The lifetime of manta style illusions in ticks"));
+        this.setCooldown(modConfig.getInt("manta style illusion creation cooldown", this.getName(), 600, 0, 9000000,
+                "The cooldown of creating manta style illusions in ticks"));
+        this.setAttackDamage(modConfig.getInt("manta style attack damage", this.getName(), 8, 0, 20,
+                "The attack damage of the manta style (sword damage as reference: wood = 3 | stone = 4 | iron = 5 | diamond = 6"));
+        this.setAttackSpeed(modConfig.getFloat("manta style attack speed", this.getName(), 1.6F, 0, 10,
+                "The attack cooldown of the manta style, smaller is faster (sword speed as reference: 2.4)"));
 
         return this;
     }
@@ -78,8 +101,6 @@ public class ModuleMantaStyle implements IArtifactModule {
 
     @Override
     public ModuleMantaStyle registerMessages(INetworkWrapper networkWrapper) {
-        networkWrapper.registerMessage(MessageSetPlayerPosition.class);
-        networkWrapper.registerMessage(MessageSwapPlayerPosition.class);
         networkWrapper.registerMessage(MessageTrackPlayer.class);
         networkWrapper.registerMessage(MessageTrackPlayerUpdate.class);
         return this;

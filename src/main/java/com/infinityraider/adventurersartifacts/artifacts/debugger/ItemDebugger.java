@@ -7,6 +7,9 @@ import com.infinityraider.infinitylib.item.IItemWithModel;
 import com.infinityraider.infinitylib.item.ItemDebuggerBase;
 import com.infinityraider.infinitylib.utility.debug.DebugMode;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Tuple;
 
 import java.util.ArrayList;
@@ -27,5 +30,10 @@ public class ItemDebugger extends ItemDebuggerBase implements IItemWithModel {
     @Override
     public List<Tuple<Integer, ModelResourceLocation>> getModelDefinitions() {
         return ImmutableList.of(new Tuple<>(0, new ModelResourceLocation(Reference.MOD_ID.toLowerCase() + ":debugger", "inventory")));
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+        return false;
     }
 }

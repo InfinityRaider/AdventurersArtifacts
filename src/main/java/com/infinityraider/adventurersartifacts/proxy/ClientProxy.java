@@ -7,6 +7,7 @@ import com.infinityraider.infinitylib.proxy.base.IClientProxyBase;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.input.Keyboard;
 
 @SideOnly(Side.CLIENT)
 @SuppressWarnings("unused")
@@ -27,5 +28,10 @@ public class ClientProxy implements IProxy, IClientProxyBase {
     public void activateRequiredModules() {
         IProxy.super.activateRequiredModules();
         AdventurersArtifacts.ARTIFACTS.forEach(IArtifactModule::activateRequiredInfinityLibModulesClient);
+    }
+
+    @Override
+    public boolean isShiftKeyPressed() {
+        return Keyboard.isKeyDown(Keyboard.KEY_LSHIFT);
     }
 }

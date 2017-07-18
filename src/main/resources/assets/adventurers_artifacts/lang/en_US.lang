@@ -1,0 +1,12 @@
+//items
+item.adventurers_artifacts:manta_style.name=Manta Style
+
+//creative tab
+itemGroup.adventurers_artifacts=Adventurers Artifacts
+
+//tooltips
+adventurers_artifacts.tooltip.more_info=Hold shift for more information
+adventurers_artifacts.tooltip.manta_style_l1=An axe made of reflective materials that causes confusion amongst enemy ranks
+adventurers_artifacts.tooltip.manta_style_l2=Should be dual wielded for full effect
+adventurers_artifacts.tooltip.manta_style_l3=Use <Sneak> + click to create an illusion for each manta style
+adventurers_artifacts.tooltip.manta_style_l4=Use <Sprint> + click to swap with target illusion of yourself

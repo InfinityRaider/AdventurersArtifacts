@@ -114,10 +114,12 @@ public class EntityReplicate extends EntityLiving implements IEntityAdditionalSp
     }
 
     public void swapWithPlayer() {
-        if(this.isEntityAlive() && this.getPlayer() != null) {
+        if(this.isEntityAlive() && this.getPlayer() != null && !getEntityWorld().isRemote) {
+            /*
             if(!this.getEntityWorld().isRemote) {
                 new MessageSwapPlayerPosition(this).sendToAll();
             }
+            */
             //get current player position
             double playerX = this.getPlayer().posX;
             double playerY = this.getPlayer().posY;
@@ -126,12 +128,12 @@ public class EntityReplicate extends EntityLiving implements IEntityAdditionalSp
             this.getPlayer().prevPosX = this.posX;
             this.getPlayer().prevPosY = this.posY;
             this.getPlayer().prevPosZ = this.posZ;
-            this.getPlayer().setPosition(this.posX, this.posY, this.posZ);
+            this.getPlayer().setPositionAndUpdate(this.posX, this.posY, this.posZ);
             //set this position
             this.prevPosX = playerX;
             this.prevPosY = playerY;
             this.prevPosZ = playerZ;
-            this.setPosition(playerX, playerY, playerZ);
+            this.setPositionAndUpdate(playerX, playerY, playerZ);
         }
     }
 

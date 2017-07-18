@@ -26,4 +26,8 @@ public interface IProxy extends IProxyBase {
     default void registerCapabilities() {
 
     }
+
+    default boolean isShiftKeyPressed() {
+        return false;
+    }
 }
