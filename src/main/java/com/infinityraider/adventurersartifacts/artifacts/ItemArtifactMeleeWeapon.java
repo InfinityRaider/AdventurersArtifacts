@@ -148,7 +148,7 @@ public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implemen
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean flag) {
         if (stack != null) {
-            list.add(TranslationHelper.translateToLocal("adventurers_artifacts.tooltip." + this.getInternalName() + " _main"));
+            list.add(TranslationHelper.translateToLocal("adventurers_artifacts.tooltip." + this.getInternalName() + "_main"));
             if (AdventurersArtifacts.proxy.isShiftKeyPressed()) {
                 int lines = this.getNumberOfTooltipLines();
                 for(int i = 1; i <= lines; i++) {

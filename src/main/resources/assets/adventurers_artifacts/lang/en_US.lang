@@ -1,14 +1,17 @@
 //items
 //-----
+item.adventurers_artifacts:ethereal_blade.name=Ethereal Blade
 item.adventurers_artifacts:manta_style.name=Manta Style
 item.adventurers_artifacts:shadow_blade.name=Shadow Blade
 
 
 //creative tab
+//------------
 itemGroup.adventurers_artifacts=Adventurers Artifacts
 
 
 //potions
+//-------
 adventurers_artifacts:potion.shadow_blade=Shadow Walk
 
 
@@ -18,10 +21,15 @@ adventurers_artifacts.tooltip.more_info=Hold shift for more information
 
 adventurers_artifacts.tooltip.dual_wield=(This is a dual wielded weapon, LMB will use the left hand, RMB the right hand)
 
+adventurers_artifacts.tooltip.ethereal_blade_main=A flickering blade of a ghastly nature, it is capable of dealing damage in both magical and physical planes
+adventurers_artifacts.tooltip.ethereal_blade_help_l1=Use <Sneak> + click to place a remnant of yourself in the magical plane (only you will see this)
+adventurers_artifacts.tooltip.ethereal_blade_help_l2=Use <Sneak> + click  again to materialize yourself again at your ghost's location
+adventurers_artifacts.tooltip.ethereal_blade_help_l3=You will also materialize from your ghost when this effect expires
+
 adventurers_artifacts.tooltip.manta_style_main=An axe made of reflective materials that causes confusion amongst enemy ranks
 adventurers_artifacts.tooltip.manta_style_help_l1=Should be dual wielded for full effect
-adventurers_artifacts.tooltip.manta_style_help_l3=Use <Sneak> + click to create an illusion for each manta style
-adventurers_artifacts.tooltip.manta_style_help_l4=Use <Sprint> + click to swap with target illusion of yourself
+adventurers_artifacts.tooltip.manta_style_help_l2=Use <Sneak> + click to create an illusion for each manta style
+adventurers_artifacts.tooltip.manta_style_help_l3=Use <Sprint> + click to swap with target illusion of yourself
 
 adventurers_artifacts.tooltip.shadow_blade_main=The blade of a fallen king, it allows you to move unseen and strike from the shadows
 adventurers_artifacts.tooltip.shadow_blade_help_l1=Use <Sneak> + click to become fully invisible, interacting with the world will break invisibility
