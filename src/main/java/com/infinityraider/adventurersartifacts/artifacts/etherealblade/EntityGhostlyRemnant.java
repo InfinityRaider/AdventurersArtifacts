@@ -48,13 +48,10 @@ public class EntityGhostlyRemnant extends Entity implements IEntityAdditionalSpa
     }
 
     @Override
-    protected void entityInit() {
-
-    }
+    protected void entityInit() {}
 
     public EntityGhostlyRemnant(EntityPlayer player, int lifeTime) {
         this(player.getEntityWorld());
-        this.addToGhostMap();
         this.lifeTime = lifeTime;
         this.player = player;
         this.oPosX = player.posX;
@@ -62,6 +59,8 @@ public class EntityGhostlyRemnant extends Entity implements IEntityAdditionalSpa
         this.oPosZ = player.posZ;
         this.oYaw = player.rotationYaw;
         this.oPitch = player.rotationPitch;
+        this.resetLocation();
+        this.addToGhostMap();
     }
 
     public void resetLocation() {
@@ -191,7 +190,6 @@ public class EntityGhostlyRemnant extends Entity implements IEntityAdditionalSpa
 
     //Entity overrides to make sure this entity is invulnerable
     //---------------------------------------------------------
-
     @Override
     protected void setSize(float width, float height) {}
 

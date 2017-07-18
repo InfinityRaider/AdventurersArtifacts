@@ -37,7 +37,8 @@ public class ItemEtherealBlade extends ItemArtifactMeleeWeapon {
                 if(ghost.isPresent()) {
                     ghost.get().setDead();
                 } else if(stack.getItemDamage() == 0) {
-                    player.getEntityWorld().spawnEntityInWorld(new EntityGhostlyRemnant(player, ModuleEtherealBlade.getInstance().getDuration()));
+                    EntityGhostlyRemnant entity = new EntityGhostlyRemnant(player, ModuleEtherealBlade.getInstance().getDuration());
+                    player.getEntityWorld().spawnEntityInWorld(entity);
                     stack.setItemDamage(this.getModule().getCooldown());
                 }
             }

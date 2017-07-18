@@ -3,13 +3,7 @@ package com.infinityraider.adventurersartifacts.artifacts.etherealblade;
 import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
 import com.infinityraider.infinitylib.entity.EntityRegistryEntry;
 import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
-import com.infinityraider.infinitylib.network.INetworkWrapper;
-import com.infinityraider.infinitylib.proxy.base.IClientProxyBase;
-import com.infinityraider.infinitylib.proxy.base.IProxyBase;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
     private static final ModuleEtherealBlade INSTANCE = new ModuleEtherealBlade();
@@ -29,12 +23,11 @@ public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
     @SuppressWarnings("unchecked")
     private ModuleEtherealBlade() {
         this.itemEtherealBlade = new ItemEtherealBlade();
-        entityGhostlyRemnant = new EntityRegistryEntry<>(EntityGhostlyRemnant.class, "entity.replicate")
+        entityGhostlyRemnant = new EntityRegistryEntry<>(EntityGhostlyRemnant.class, "entity.ghostly_remnant")
                 .setTrackingDistance(64)
                 .setUpdateFrequency(1)
                 .setVelocityUpdates(true)
-                .setRenderFactory(EntityGhostlyRemnant.RenderFactory.getInstance())
-                .setEntityTargetedBy(EntityMob.class);
+                .setRenderFactory(EntityGhostlyRemnant.RenderFactory.getInstance());
     }
 
     public int getDuration() {
@@ -94,22 +87,6 @@ public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
                 "The attack damage of the ethereal blade (sword damage as reference: wood = 3 | stone = 4 | iron = 5 | diamond = 6"));
         this.setAttackSpeed(modConfig.getFloat("ethereal blade attack speed", this.getName(), 1.8F, 0, 10,
                 "The attack cooldown of the ethereal blade, smaller is faster (sword speed as reference: 2.4)"));
-        return this;
-    }
-
-    @Override
-    public ModuleEtherealBlade registerMessages(INetworkWrapper networkWrapper) {
-        return this;
-    }
-
-    @Override
-    public ModuleEtherealBlade registerEventHandlers(IProxyBase proxy) {
-        return this;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public ModuleEtherealBlade registerEventHandlersClient(IClientProxyBase proxy) {
         return this;
     }
 
