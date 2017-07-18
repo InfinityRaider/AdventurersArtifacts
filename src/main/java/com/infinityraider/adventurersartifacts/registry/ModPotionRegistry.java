@@ -33,11 +33,13 @@ public class ModPotionRegistry {
         return ImmutableList.copyOf(potions);
     }
 
-    public Potion registerPotion(Potion potion, Configuration config, String category) {
-        String name = potion.getName();
-        int id = config.getInt(name, category, getNextId(), 0, 255,
+    public Potion registerPotion(Potion potion, String name, Configuration config, String category) {
+        int id = config.getInt(name + " potion id", category, getNextId(), 0, 255,
                 "Id for the " + name + " potion effect, this potion effect is generated on the first run by detecting a free potion id.");
-        this.potionRegistry.register(id, new ResourceLocation(Reference.MOD_ID, name), potion);
+        if(config.hasChanged()) {
+            config.save();
+        }
+        this.potionRegistry.register(id, new ResourceLocation(Reference.MOD_ID, potion.getName()), potion);
         potions.add(potion);
         return potion;
     }

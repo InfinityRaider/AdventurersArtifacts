@@ -113,7 +113,7 @@ public class ModuleShadowBlade implements IArtifactModuleWeaponWithAbility {
 
     @Override
     public ModuleShadowBlade registerPotions(ModPotionRegistry registry, Configuration modConfig) {
-        registry.registerPotion(this.potionShadowBlade, modConfig, this.getName());
+        registry.registerPotion(this.potionShadowBlade, this.getName(), modConfig, this.getName());
         return this;
     }
 
