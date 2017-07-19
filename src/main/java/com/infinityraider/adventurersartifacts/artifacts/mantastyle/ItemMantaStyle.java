@@ -1,6 +1,5 @@
 package com.infinityraider.adventurersartifacts.artifacts.mantastyle;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
 import com.infinityraider.infinitylib.utility.RayTraceHelper;
 import net.minecraft.entity.Entity;
@@ -19,7 +18,7 @@ public class ItemMantaStyle extends ItemArtifactMeleeWeapon {
     }
 
     @Override
-    public IArtifactModuleWeaponWithAbility getModule() {
+    public ModuleMantaStyle getModule() {
         return ModuleMantaStyle.getInstance();
     }
 

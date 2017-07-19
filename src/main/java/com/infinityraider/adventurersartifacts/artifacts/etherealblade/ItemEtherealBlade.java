@@ -1,6 +1,5 @@
 package com.infinityraider.adventurersartifacts.artifacts.etherealblade;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +14,7 @@ public class ItemEtherealBlade extends ItemArtifactMeleeWeapon {
     }
 
     @Override
-    public IArtifactModuleWeaponWithAbility getModule() {
+    public ModuleEtherealBlade getModule() {
         return ModuleEtherealBlade.getInstance();
     }
 

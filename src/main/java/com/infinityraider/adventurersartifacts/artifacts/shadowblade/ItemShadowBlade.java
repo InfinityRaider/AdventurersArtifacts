@@ -1,6 +1,5 @@
 package com.infinityraider.adventurersartifacts.artifacts.shadowblade;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +12,7 @@ public class ItemShadowBlade extends ItemArtifactMeleeWeapon {
     }
 
     @Override
-    public IArtifactModuleWeaponWithAbility getModule() {
+    public ModuleShadowBlade getModule() {
         return ModuleShadowBlade.getInstance();
     }
 

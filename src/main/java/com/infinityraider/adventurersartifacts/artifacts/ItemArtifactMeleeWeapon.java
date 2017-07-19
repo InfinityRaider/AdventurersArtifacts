@@ -39,7 +39,8 @@ public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implemen
         SWORD,
         AXE,
         HAMMER,
-        SPEAR
+        SPEAR,
+        SCYTHE
     }
 
     public ItemArtifactMeleeWeapon(String name) {
@@ -117,6 +118,7 @@ public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implemen
                         return 1.0F;
                     }
                 }
+
             case AXE:
                 if (EFFECTIVE_ON.contains(block) || material == Material.WOOD || material == Material.PLANTS || material == Material.VINE) {
                     return 8.0F;
@@ -125,9 +127,19 @@ public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implemen
                 } else {
                     return 1.0F;
                 }
+
             case HAMMER:
+                return 1.0F;
 
             case SPEAR:
+                return 1.0F;
+
+            case SCYTHE:
+                if (material == Material.PLANTS || material == Material.VINE || material == Material.LEAVES) {
+                    return 4.5F;
+                } else {
+                    return 1.0F;
+                }
 
             default:
                 return 1.0F;

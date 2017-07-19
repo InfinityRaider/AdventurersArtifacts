@@ -1,8 +1,9 @@
 package com.infinityraider.adventurersartifacts.artifacts;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.World;
 
 public interface IArtifactModuleItemWithAbility extends IArtifactModule {
 
@@ -12,7 +13,11 @@ public interface IArtifactModuleItemWithAbility extends IArtifactModule {
 
     SoundEvent getSound();
 
-    default void playSound(EntityPlayer player) {
-        player.getEntityWorld().playSound(null, player.posX, player.posY, player.posZ, this.getSound(), SoundCategory.PLAYERS, 0.5F, 1);
+    default void playSound(Entity entity) {
+        this.playSound(entity.getEntityWorld(), entity.posX, entity.posY, entity.posZ);
+    }
+
+    default void playSound(World world, double x, double y, double z) {
+        world.playSound(null, x, y, z, this.getSound(), SoundCategory.PLAYERS, 0.5F, 1);
     }
 }
