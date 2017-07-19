@@ -58,4 +58,8 @@ public interface IArtifactModule {
     default IArtifactModule activateRequiredInfinityLibModulesClient() {
         return this;
     }
+
+    default IArtifactModule registerSounds() {
+        return this;
+    }
 }

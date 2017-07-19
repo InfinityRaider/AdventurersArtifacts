@@ -42,6 +42,7 @@ public class ItemMantaStyle extends ItemArtifactMeleeWeapon {
             if (stack.getItemDamage() == 0 && otherOk) {
                 EntityReplicate.getReplicates(player).forEach(EntityReplicate::setDead);
                 this.createReplicas(player, player.getHeldItem(EnumHand.MAIN_HAND), player.getHeldItem(EnumHand.OFF_HAND));
+                this.getModule().playSound(player);
                 stack.setItemDamage(this.getModule().getCooldown());
                 if (other != null && other.getItem() instanceof ItemMantaStyle) {
                     other.setItemDamage(this.getModule().getCooldown());
@@ -88,7 +89,7 @@ public class ItemMantaStyle extends ItemArtifactMeleeWeapon {
                     entity = player;
                     player.setPositionAndUpdate(newX, y, newZ);
                 } else {
-                    replicas.add(new EntityReplicate(player, ModuleMantaStyle.getInstance().getReplicaLifeTime()));
+                    replicas.add(new EntityReplicate(player, ModuleMantaStyle.getInstance().getDuration()));
                     entity = replicas.get(i - 1);
                     player.getEntityWorld().spawnEntityInWorld(entity);
                 }

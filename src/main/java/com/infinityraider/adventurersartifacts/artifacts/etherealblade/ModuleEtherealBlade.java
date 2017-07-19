@@ -1,8 +1,11 @@
 package com.infinityraider.adventurersartifacts.artifacts.etherealblade;
 
 import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
+import com.infinityraider.adventurersartifacts.reference.Reference;
 import com.infinityraider.infinitylib.entity.EntityRegistryEntry;
 import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
+import com.infinityraider.infinitylib.utility.RegisterHelper;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.config.Configuration;
 
 public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
@@ -14,6 +17,8 @@ public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
 
     public final ItemEtherealBlade itemEtherealBlade;
     public final EntityRegistryEntry<EntityGhostlyRemnant> entityGhostlyRemnant;
+
+    private SoundEvent sound;
 
     private int duration;
     private int cooldown;
@@ -28,6 +33,11 @@ public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
                 .setUpdateFrequency(1)
                 .setVelocityUpdates(true)
                 .setRenderFactory(EntityGhostlyRemnant.RenderFactory.getInstance());
+    }
+
+    @Override
+    public SoundEvent getSound() {
+        return this.sound;
     }
 
     public int getDuration() {
@@ -93,6 +103,12 @@ public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
     @Override
     public ModuleEtherealBlade activateRequiredInfinityLibModules() {
         ModuleDualWield.getInstance().activate();
+        return this;
+    }
+
+    @Override
+    public ModuleEtherealBlade registerSounds() {
+        this.sound = RegisterHelper.registerSound(Reference.MOD_ID, this.getName());
         return this;
     }
 }

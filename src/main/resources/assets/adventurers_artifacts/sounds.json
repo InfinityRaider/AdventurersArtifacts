@@ -1,0 +1,5 @@
+{
+  "ethereal_blade": { "category": "player", "sounds": ["adventurers_artifacts:ethereal_blade"], "subtitle": "adventurers_artifacts.subtitle.ethereal_blade" },
+  "manta_style": { "category": "player", "sounds": ["adventurers_artifacts:manta_style"], "subtitle": "adventurers_artifacts.subtitle.manta_style" },
+  "shadow_blade": { "category": "player", "sounds": ["adventurers_artifacts:shadow_blade"], "subtitle": "adventurers_artifacts.subtitle.shadow_blade" }
+}

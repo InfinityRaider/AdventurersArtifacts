@@ -32,6 +32,7 @@ public class ItemShadowBlade extends ItemArtifactMeleeWeapon {
         if (shift) {
             if (!player.getEntityWorld().isRemote && stack.getItemDamage() == 0) {
                 InvisibilityHandler.getInstance().setInvisible(player);
+                this.getModule().playSound(player);
                 stack.setItemDamage(this.getModule().getCooldown());
             }
         }

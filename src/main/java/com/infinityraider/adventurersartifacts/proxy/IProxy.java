@@ -34,6 +34,11 @@ public interface IProxy extends IProxyBase {
 
     }
 
+    @Override
+    default void registerSounds() {
+        AdventurersArtifacts.ARTIFACTS.forEach(IArtifactModule::registerSounds);
+    }
+
     default boolean isShiftKeyPressed() {
         return false;
     }
