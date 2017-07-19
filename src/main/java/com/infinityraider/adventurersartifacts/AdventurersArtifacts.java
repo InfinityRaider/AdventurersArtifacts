@@ -10,6 +10,7 @@ import com.infinityraider.infinitylib.InfinityMod;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
 import com.infinityraider.infinitylib.proxy.base.IProxyBase;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -33,7 +34,7 @@ public class AdventurersArtifacts extends InfinityMod {
     public static final CreativeTabs MOD_TAB = new CreativeTabs(Reference.MOD_ID) {
         @Override
         public Item getTabIconItem() {
-            return ModItemRegistry.getInstance().itemDebugger;
+            return Items.LEATHER_BOOTS;
         }
     };
 
