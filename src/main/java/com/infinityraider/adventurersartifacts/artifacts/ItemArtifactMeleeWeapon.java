@@ -40,10 +40,11 @@ public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implemen
         AXE,
         HAMMER,
         SPEAR,
-        SCYTHE
+        SCYTHE,
+        DAGGER
     }
 
-    public ItemArtifactMeleeWeapon(String name) {
+    protected ItemArtifactMeleeWeapon(String name) {
         super(name);
         this.setMaxStackSize(1);
         this.setCreativeTab(AdventurersArtifacts.MOD_TAB);

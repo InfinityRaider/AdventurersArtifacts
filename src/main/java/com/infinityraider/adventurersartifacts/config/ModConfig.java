@@ -17,9 +17,6 @@ public class ModConfig {
 
     private Configuration config;
 
-    //debug
-    public boolean debug;
-
     public Configuration getConfiguration() {
         return this.config;
     }
@@ -28,7 +25,6 @@ public class ModConfig {
         if(config == null) {
             config = new Configuration(event.getSuggestedConfigurationFile());
         }
-        loadConfiguration();
         AdventurersArtifacts.ARTIFACTS.forEach(a -> a.loadConfiguration(config));
         if(config.hasChanged()) {
             config.save();
@@ -49,29 +45,8 @@ public class ModConfig {
         AdventurersArtifacts.instance.getLogger().debug("Client configuration Loaded");
     }
 
-    private void loadConfiguration() {
-        //debug
-        debug = config.getBoolean("debug", Categories.DEBUG.getName(), false, "Set to true if you wish to enable debug mode");
-    }
-
     @SideOnly(Side.CLIENT)
     private void loadClientConfiguration(FMLPreInitializationEvent event) {
 
-    }
-
-    public enum Categories {
-        GENERAL("general"),
-        CLIENT("client"),
-        DEBUG("debug");
-
-        private final String name;
-
-        Categories(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
     }
 }

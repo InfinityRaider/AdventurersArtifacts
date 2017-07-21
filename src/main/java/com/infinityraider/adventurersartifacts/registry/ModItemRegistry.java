@@ -1,5 +1,7 @@
 package com.infinityraider.adventurersartifacts.registry;
 
+import com.infinityraider.adventurersartifacts.artifacts.blinkdagger.ModuleBlinkDagger;
+import com.infinityraider.adventurersartifacts.artifacts.butterfly.ModuleButterfly;
 import com.infinityraider.adventurersartifacts.artifacts.etherealblade.ModuleEtherealBlade;
 import com.infinityraider.adventurersartifacts.artifacts.mantastyle.ModuleMantaStyle;
 import com.infinityraider.adventurersartifacts.artifacts.scytheofvyse.ModuleScytheOfVyse;
@@ -14,12 +16,16 @@ public class ModItemRegistry {
     }
 
     private ModItemRegistry() {
+        this.itemBlinkDagger = ModuleBlinkDagger.getInstance().itemBlinkDagger;
+        this.itemButterfly = ModuleButterfly.getInstance().itemButterfly;
         this.itemEtherealBlade = ModuleEtherealBlade.getInstance().itemEtherealBlade;
         this.itemMantaStyle = ModuleMantaStyle.getInstance().itemMantaStyle;
         this.itemScytheOfVyse = ModuleScytheOfVyse.getInstance().itemScytheOfVyse;
         this.itemShadowBlade = ModuleShadowBlade.getInstance().itemShadowBlade;
     }
 
+    public final Item itemBlinkDagger;
+    public final Item itemButterfly;
     public final Item itemEtherealBlade;
     public final Item itemMantaStyle;
     public final Item itemScytheOfVyse;

@@ -1,6 +1,9 @@
 //items
 //-----
+item.adventurers_artifacts:blink_dagger.name=Blink Dagger
+item.adventurers_artifacts:butterfly.name=Butterfly
 item.adventurers_artifacts:ethereal_blade.name=Ethereal Blade
+item.adventurers_artifacts:hurricane_pike.name=Hurricane Pike
 item.adventurers_artifacts:scythe_of_vyse.name=Scythe of Vyse
 item.adventurers_artifacts:manta_style.name=Manta Style
 item.adventurers_artifacts:shadow_blade.name=Shadow Blade
@@ -13,6 +16,7 @@ itemGroup.adventurers_artifacts=Adventurers Artifacts
 
 //potions
 //-------
+adventurers_artifacts:potion.butterfly=Flutter
 adventurers_artifacts:potion.shadow_blade=Shadow Walk
 adventurers_artifacts:potion.scythe_of_vyse=Hexed
 
@@ -23,10 +27,20 @@ adventurers_artifacts.tooltip.more_info=Hold shift for more information
 
 adventurers_artifacts.tooltip.dual_wield=(This is a dual wielded weapon, LMB will use the left hand, RMB the right hand)
 
+adventurers_artifacts.tooltip.blink_dagger_main=The fabled dagger used by the fastest assassin ever to walk the lands
+adventurers_artifacts.tooltip.blink_dagger_help_l1=Use <Sneak> + click to blink towards target location
+
+adventurers_artifacts.tooltip.butterfly_main=Only the mightiest and most experienced of warriors can wield the Butterfly, but it provides incredible dexterity in combat
+adventurers_artifacts.tooltip.butterfly_help_l1=Use <Sprint> + click to activate flutter to gain increased attack and movement speed
+
 adventurers_artifacts.tooltip.ethereal_blade_main=A flickering blade of a ghastly nature, it is capable of dealing damage in both magical and physical planes
 adventurers_artifacts.tooltip.ethereal_blade_help_l1=Use <Sneak> + click to place a remnant of yourself in the magical plane (only you will see this)
 adventurers_artifacts.tooltip.ethereal_blade_help_l2=Use <Sneak> + click  again to materialize yourself again at your ghost's location
 adventurers_artifacts.tooltip.ethereal_blade_help_l3=You will also materialize from your ghost when this effect expires
+
+adventurers_artifacts.tooltip.hurricane_pike_main=A legendary pike once held as royal sigil of the ancient wyvern riders
+adventurers_artifacts.tooltip.hurricane_pike_help_l1=Use <Sneak> + click to push your target forward
+adventurers_artifacts.tooltip.hurricane_pike_help_l2=Use <Sprint> + click to push yourself forward
 
 adventurers_artifacts.tooltip.scythe_of_vyse_main=The most guarded relic among the cult of Vyse, it is the most coveted weapon among magi.
 adventurers_artifacts.tooltip.scythe_of_vyse_help_l1=Use <Sneak> + click to hex the target entity and turn them into a pig
@@ -44,7 +58,10 @@ adventurers_artifacts.tooltip.shadow_blade_help_l1=Use <Sneak> + click to become
 
 //subtitles
 //---------
+adventurers_artifacts.subtitle.blink_dagger=<Blink Dagger Sound>
+adventurers_artifacts.subtitle.butterfly=<Butterfly Sound>
 adventurers_artifacts.subtitle.ethereal_blade=<Ethereal Blade Sound>
+adventurers_artifacts.subtitle.hurricane_pike=<Hurricane Pike Sound>
 adventurers_artifacts.subtitle.manta_style=<Manta Style Sound>
 adventurers_artifacts.subtitle.scythe_of_vyse=<Scythe of Vyse Sound>
 adventurers_artifacts.subtitle.shadow_blade=<Shadow Blade Sound>

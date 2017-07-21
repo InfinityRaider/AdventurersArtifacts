@@ -1,5 +1,8 @@
 {
+  "blink_dagger": { "category": "player", "sounds": ["adventurers_artifacts:blink_dagger"], "subtitle": "adventurers_artifacts.subtitle.blink_dagger" },
+  "butterfly": { "category": "player", "sounds": ["adventurers_artifacts:butterfly"], "subtitle": "adventurers_artifacts.subtitle.butterfly" },
   "ethereal_blade": { "category": "player", "sounds": ["adventurers_artifacts:ethereal_blade"], "subtitle": "adventurers_artifacts.subtitle.ethereal_blade" },
+  "hurricane_pike": { "category": "player", "sounds": ["adventurers_artifacts:hurricane_pike"], "subtitle": "adventurers_artifacts.subtitle.hurricane_pike" },
   "manta_style": { "category": "player", "sounds": ["adventurers_artifacts:manta_style"], "subtitle": "adventurers_artifacts.subtitle.manta_style" },
   "scythe_of_vyse": { "category": "player", "sounds": ["adventurers_artifacts:scythe_of_vyse"], "subtitle": "adventurers_artifacts.subtitle.scythe_of_vyse" },
   "shadow_blade": { "category": "player", "sounds": ["adventurers_artifacts:shadow_blade"], "subtitle": "adventurers_artifacts.subtitle.shadow_blade" }

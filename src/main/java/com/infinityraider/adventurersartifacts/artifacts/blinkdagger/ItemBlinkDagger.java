@@ -1,46 +1,44 @@
-package com.infinityraider.adventurersartifacts.artifacts.scytheofvyse;
+package com.infinityraider.adventurersartifacts.artifacts.blinkdagger;
 
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
 import com.infinityraider.infinitylib.utility.RayTraceHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 
-public class ItemScytheOfVyse extends ItemArtifactMeleeWeapon {
-    protected ItemScytheOfVyse() {
-        super("scythe_of_vyse");
+import static com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon.TYPE.DAGGER;
+
+public class ItemBlinkDagger extends ItemArtifactMeleeWeapon {
+    protected ItemBlinkDagger() {
+        super("blink_dagger");
     }
 
     @Override
-    public ModuleScytheOfVyse getModule() {
-        return ModuleScytheOfVyse.getInstance();
+    public ModuleBlinkDagger getModule() {
+        return ModuleBlinkDagger.getInstance();
     }
 
     @Override
     public TYPE getType() {
-        return TYPE.SCYTHE;
+        return DAGGER;
     }
 
     @Override
     public int getNumberOfTooltipLines() {
-        return 3;
+        return 1;
     }
 
     @Override
     public void onItemUsed(ItemStack stack, EntityPlayer player, boolean shift, boolean ctrl, EnumHand hand) {
         if(shift && !player.getEntityWorld().isRemote && stack.getItemDamage() == 0) {
-            RayTraceResult target = RayTraceHelper.getTargetEntityOrBlock(player, this.getModule().getRange());
-            if(target != null && target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit instanceof EntityLivingBase) {
-                EntityLivingBase entity = (EntityLivingBase) target.entityHit;
-                HexedHandler.getInstance().hexEntity(entity);
+            RayTraceResult result = RayTraceHelper.getTargetBlock(player, this.getModule().getRange());
+            if(result != null && result.hitVec != null) {
+                player.setPositionAndUpdate(result.hitVec.xCoord, result.hitVec.yCoord + 0.1, result.hitVec.zCoord);
+                this.getModule().playSound(player);
                 stack.setItemDamage(this.getModule().getCooldown());
             }
-        } else if(ctrl) {
-            HexedHandler.getInstance().hexEntity(player);
         }
     }
 
