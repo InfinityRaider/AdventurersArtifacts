@@ -1,18 +1,18 @@
 package com.infinityraider.adventurersartifacts.artifacts.scytheofvyse;
 
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import com.infinityraider.infinitylib.utility.RayTraceHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 
 public class ItemScytheOfVyse extends ItemArtifactMeleeWeapon {
     protected ItemScytheOfVyse() {
-        super("scythe_of_vyse");
+        super(Names.Artifacts.SCYTHE_OF_VYSE);
     }
 
     @Override
@@ -21,8 +21,8 @@ public class ItemScytheOfVyse extends ItemArtifactMeleeWeapon {
     }
 
     @Override
-    public TYPE getType() {
-        return TYPE.SCYTHE;
+    public Type getType() {
+        return Type.SCYTHE;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.hurricanepike;
 
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import com.infinityraider.infinitylib.utility.RayTraceHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,7 +15,7 @@ import net.minecraft.util.math.Vec3d;
 
 public class ItemHurricanePike extends ItemArtifactMeleeWeapon {
     protected ItemHurricanePike() {
-        super("hurricane_pike");
+        super(Names.Artifacts.HURRICANE_PIKE);
     }
 
     @Override
@@ -23,8 +24,8 @@ public class ItemHurricanePike extends ItemArtifactMeleeWeapon {
     }
 
     @Override
-    public TYPE getType() {
-        return TYPE.SPEAR;
+    public Type getType() {
+        return Type.SPEAR;
     }
 
     @Override

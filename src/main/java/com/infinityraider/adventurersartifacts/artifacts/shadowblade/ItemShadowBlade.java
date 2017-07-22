@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.shadowblade;
 
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -8,7 +9,7 @@ import net.minecraft.util.EnumHand;
 
 public class ItemShadowBlade extends ItemArtifactMeleeWeapon {
     protected ItemShadowBlade() {
-        super("shadow_blade");
+        super(Names.Artifacts.SHADOW_BLADE);
     }
 
     @Override
@@ -17,8 +18,8 @@ public class ItemShadowBlade extends ItemArtifactMeleeWeapon {
     }
 
     @Override
-    public TYPE getType() {
-        return TYPE.SWORD;
+    public Type getType() {
+        return Type.SWORD;
     }
 
     @Override

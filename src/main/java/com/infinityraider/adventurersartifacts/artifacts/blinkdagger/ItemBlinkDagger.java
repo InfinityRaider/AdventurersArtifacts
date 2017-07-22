@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.blinkdagger;
 
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import com.infinityraider.infinitylib.utility.RayTraceHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,11 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 
-import static com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon.TYPE.DAGGER;
-
 public class ItemBlinkDagger extends ItemArtifactMeleeWeapon {
     protected ItemBlinkDagger() {
-        super("blink_dagger");
+        super(Names.Artifacts.BLINK_DAGGER);
     }
 
     @Override
@@ -21,8 +20,8 @@ public class ItemBlinkDagger extends ItemArtifactMeleeWeapon {
     }
 
     @Override
-    public TYPE getType() {
-        return DAGGER;
+    public Type getType() {
+        return Type.DAGGER;
     }
 
     @Override

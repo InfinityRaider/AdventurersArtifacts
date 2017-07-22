@@ -35,7 +35,7 @@ import java.util.Set;
 public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implements IDualWieldedWeapon {
     public static final Set<Block> EFFECTIVE_ON = getItemAxeEffectiveBlocks();
 
-    public enum TYPE {
+    public enum Type {
         SWORD,
         AXE,
         HAMMER,
@@ -52,11 +52,11 @@ public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implemen
 
     public abstract ArtifactModuleWeaponWithAbility getModule();
 
-    public abstract TYPE getType();
+    public abstract Type getType();
 
     @Override
     public boolean isEffectiveAgainstShield() {
-        return this.getType() == TYPE.AXE || this.getType() == TYPE.HAMMER;
+        return this.getType() == Type.AXE || this.getType() == Type.HAMMER;
     }
 
     @Override

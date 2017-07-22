@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.scytheofvyse;
 
 import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import com.infinityraider.adventurersartifacts.registry.ModPotionRegistry;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
 import com.infinityraider.infinitylib.proxy.base.*;
@@ -22,7 +23,7 @@ public class ModuleScytheOfVyse extends ArtifactModuleWeaponWithAbility {
     private int range;
 
     private ModuleScytheOfVyse() {
-        super("scythe_of_vyse");
+        super(Names.Artifacts.SCYTHE_OF_VYSE);
         this.itemScytheOfVyse = new ItemScytheOfVyse();
         this.potionHex = new PotionHex();
     }

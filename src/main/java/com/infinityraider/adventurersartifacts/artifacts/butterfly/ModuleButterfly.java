@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.butterfly;
 
 import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import com.infinityraider.adventurersartifacts.registry.ModPotionRegistry;
 import com.infinityraider.infinitylib.item.ItemBase;
 import net.minecraft.potion.Potion;
@@ -19,7 +20,7 @@ public class ModuleButterfly extends ArtifactModuleWeaponWithAbility {
     private int duration;
 
     private ModuleButterfly() {
-        super("butterfly");
+        super(Names.Artifacts.BUTTERFLY);
         this.itemButterfly = new ItemButterfly();
         this.potionFlutter = new PotionFlutter();
     }

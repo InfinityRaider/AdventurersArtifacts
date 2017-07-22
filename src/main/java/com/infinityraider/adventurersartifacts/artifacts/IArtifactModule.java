@@ -6,6 +6,7 @@ import com.infinityraider.adventurersartifacts.artifacts.butterfly.ModuleButterf
 import com.infinityraider.adventurersartifacts.artifacts.etherealblade.ModuleEtherealBlade;
 import com.infinityraider.adventurersartifacts.artifacts.hurricanepike.ModuleHurricanePike;
 import com.infinityraider.adventurersartifacts.artifacts.mantastyle.ModuleMantaStyle;
+import com.infinityraider.adventurersartifacts.artifacts.mjollnir.ModuleMjollnir;
 import com.infinityraider.adventurersartifacts.artifacts.scytheofvyse.ModuleScytheOfVyse;
 import com.infinityraider.adventurersartifacts.artifacts.shadowblade.ModuleShadowBlade;
 import com.infinityraider.adventurersartifacts.registry.ModPotionRegistry;
@@ -25,6 +26,7 @@ public interface IArtifactModule {
                 ModuleEtherealBlade.getInstance(),
                 ModuleHurricanePike.getInstance(),
                 ModuleMantaStyle.getInstance(),
+                ModuleMjollnir.getInstance(),
                 ModuleScytheOfVyse.getInstance(),
                 ModuleShadowBlade.getInstance()
         );

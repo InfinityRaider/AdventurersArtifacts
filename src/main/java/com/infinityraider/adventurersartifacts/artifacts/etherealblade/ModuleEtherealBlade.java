@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.etherealblade;
 
 import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import com.infinityraider.infinitylib.entity.EntityRegistryEntry;
 import net.minecraftforge.common.config.Configuration;
 
@@ -18,7 +19,7 @@ public class ModuleEtherealBlade extends ArtifactModuleWeaponWithAbility {
 
     @SuppressWarnings("unchecked")
     private ModuleEtherealBlade() {
-        super("ethereal_blade");
+        super(Names.Artifacts.ETHEREAL_BLADE);
         this.itemEtherealBlade = new ItemEtherealBlade();
         this.entityGhostlyRemnant = new EntityRegistryEntry<>(EntityGhostlyRemnant.class, "entity.ghostly_remnant")
                 .setTrackingDistance(64)

@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.hurricanepike;
 
 import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import net.minecraftforge.common.config.Configuration;
 
 public class ModuleHurricanePike extends ArtifactModuleWeaponWithAbility {
@@ -16,7 +17,7 @@ public class ModuleHurricanePike extends ArtifactModuleWeaponWithAbility {
     private int range;
 
     private ModuleHurricanePike() {
-        super("hurricane_pike");
+        super(Names.Artifacts.HURRICANE_PIKE);
         this.itemHurricanePike = new ItemHurricanePike();
     }
 

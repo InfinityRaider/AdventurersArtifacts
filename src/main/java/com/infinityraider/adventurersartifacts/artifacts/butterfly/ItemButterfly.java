@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.butterfly;
 
 import com.infinityraider.adventurersartifacts.artifacts.ItemArtifactMeleeWeapon;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -9,7 +10,7 @@ import net.minecraft.util.EnumHand;
 
 public class ItemButterfly extends ItemArtifactMeleeWeapon {
     protected ItemButterfly() {
-        super("butterfly");
+        super(Names.Artifacts.BUTTERFLY);
     }
 
     @Override
@@ -18,8 +19,8 @@ public class ItemButterfly extends ItemArtifactMeleeWeapon {
     }
 
     @Override
-    public TYPE getType() {
-        return TYPE.SWORD;
+    public Type getType() {
+        return Type.SWORD;
     }
 
     @Override

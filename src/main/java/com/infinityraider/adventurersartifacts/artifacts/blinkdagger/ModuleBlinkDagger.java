@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.blinkdagger;
 
 import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import net.minecraftforge.common.config.Configuration;
 
 public class ModuleBlinkDagger extends ArtifactModuleWeaponWithAbility {
@@ -15,7 +16,7 @@ public class ModuleBlinkDagger extends ArtifactModuleWeaponWithAbility {
     private int range;
 
     private ModuleBlinkDagger() {
-        super("blink_dagger");
+        super(Names.Artifacts.BLINK_DAGGER);
         this.itemBlinkDagger = new ItemBlinkDagger();
     }
 

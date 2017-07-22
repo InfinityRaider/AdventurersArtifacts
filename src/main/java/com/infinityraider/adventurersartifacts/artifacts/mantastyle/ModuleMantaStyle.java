@@ -1,6 +1,7 @@
 package com.infinityraider.adventurersartifacts.artifacts.mantastyle;
 
 import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
+import com.infinityraider.adventurersartifacts.reference.Names;
 import com.infinityraider.infinitylib.entity.EntityRegistryEntry;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
 import com.infinityraider.infinitylib.proxy.base.IClientProxyBase;
@@ -23,7 +24,7 @@ public class ModuleMantaStyle extends ArtifactModuleWeaponWithAbility {
 
     @SuppressWarnings("unchecked")
     private ModuleMantaStyle() {
-        super("manta_style");
+        super(Names.Artifacts.MANTA_STYLE);
         this.itemMantaStyle = new ItemMantaStyle();
         this.entityReplicate = new EntityRegistryEntry<>(EntityReplicate.class, "entity.replicate")
                 .setTrackingDistance(64)
