@@ -55,6 +55,11 @@ public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implemen
     public abstract TYPE getType();
 
     @Override
+    public boolean isEffectiveAgainstShield() {
+        return this.getType() == TYPE.AXE || this.getType() == TYPE.HAMMER;
+    }
+
+    @Override
     public List<String> getOreTags() {
         return Collections.emptyList();
     }
@@ -141,7 +146,16 @@ public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implemen
                 } else {
                     return 1.0F;
                 }
-
+            case DAGGER:
+                if (block == Blocks.WEB) {
+                    return 10.0F;
+                } else {
+                    if (material == Material.PLANTS || material == Material.VINE ||material == Material.CORAL || material == Material.LEAVES || material == Material.GLASS) {
+                        return 1.5F;
+                    } else {
+                        return 1.0F;
+                    }
+                }
             default:
                 return 1.0F;
         }

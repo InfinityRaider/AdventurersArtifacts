@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.infinityraider.adventurersartifacts.artifacts.blinkdagger.ModuleBlinkDagger;
 import com.infinityraider.adventurersartifacts.artifacts.butterfly.ModuleButterfly;
 import com.infinityraider.adventurersartifacts.artifacts.etherealblade.ModuleEtherealBlade;
+import com.infinityraider.adventurersartifacts.artifacts.hurricanepike.ModuleHurricanePike;
 import com.infinityraider.adventurersartifacts.artifacts.mantastyle.ModuleMantaStyle;
 import com.infinityraider.adventurersartifacts.artifacts.scytheofvyse.ModuleScytheOfVyse;
 import com.infinityraider.adventurersartifacts.artifacts.shadowblade.ModuleShadowBlade;
@@ -22,6 +23,7 @@ public interface IArtifactModule {
                 ModuleBlinkDagger.getInstance(),
                 ModuleButterfly.getInstance(),
                 ModuleEtherealBlade.getInstance(),
+                ModuleHurricanePike.getInstance(),
                 ModuleMantaStyle.getInstance(),
                 ModuleScytheOfVyse.getInstance(),
                 ModuleShadowBlade.getInstance()

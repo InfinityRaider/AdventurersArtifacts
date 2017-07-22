@@ -58,11 +58,6 @@ public class ItemMantaStyle extends ItemArtifactMeleeWeapon {
         return ctrl || shift;
     }
 
-    @Override
-    public boolean isEffectiveAgainstShield() {
-        return true;
-    }
-
     public boolean createReplicas(EntityPlayer player, ItemStack main, ItemStack off) {
         if (!player.getEntityWorld().isRemote) {
             int amount = 0;
