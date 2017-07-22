@@ -1,13 +1,9 @@
 package com.infinityraider.adventurersartifacts.artifacts.blinkdagger;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
-import com.infinityraider.adventurersartifacts.reference.Reference;
-import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
-import com.infinityraider.infinitylib.utility.RegisterHelper;
-import net.minecraft.util.SoundEvent;
+import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
 import net.minecraftforge.common.config.Configuration;
 
-public class ModuleBlinkDagger implements IArtifactModuleWeaponWithAbility {
+public class ModuleBlinkDagger extends ArtifactModuleWeaponWithAbility {
     private static final ModuleBlinkDagger INSTANCE = new ModuleBlinkDagger();
 
     public static ModuleBlinkDagger getInstance() {
@@ -16,20 +12,10 @@ public class ModuleBlinkDagger implements IArtifactModuleWeaponWithAbility {
 
     public final ItemBlinkDagger itemBlinkDagger;
 
-    private SoundEvent sound;
-
     private int range;
-    private int cooldown;
-    private int attackDamage;
-    private double attackSpeed;
 
     private ModuleBlinkDagger() {
         this.itemBlinkDagger = new ItemBlinkDagger();
-    }
-
-    @Override
-    public SoundEvent getSound() {
-        return this.sound;
     }
 
     public int getRange() {
@@ -38,39 +24,6 @@ public class ModuleBlinkDagger implements IArtifactModuleWeaponWithAbility {
 
     public ModuleBlinkDagger setRange(int range) {
         this.range = range <= 0 ? 0 : range;
-        return this;
-    }
-
-    @Override
-    public int getCooldown() {
-        return cooldown;
-    }
-
-    @Override
-    public ModuleBlinkDagger setCooldown(int time) {
-        this.cooldown = time <= 0 ? 0 : time;
-        return this;
-    }
-
-    @Override
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    @Override
-    public ModuleBlinkDagger setAttackDamage(int dmg) {
-        this.attackDamage = dmg < 0 ? 0 : dmg;
-        return this;
-    }
-
-    @Override
-    public double getAttackSpeed() {
-        return attackSpeed;
-    }
-
-    @Override
-    public ModuleBlinkDagger setAttackSpeed(double speed) {
-        this.attackSpeed = speed < 0 ? 0 : speed;
         return this;
     }
 
@@ -89,18 +42,6 @@ public class ModuleBlinkDagger implements IArtifactModuleWeaponWithAbility {
                 "The attack damage of the blink dagger (sword damage as reference: wood = 3 | stone = 4 | iron = 5 | diamond = 6"));
         this.setAttackSpeed(modConfig.getFloat("blink dagger attack speed", this.getName(), 0.6F, 0, 10,
                 "The attack cooldown of the blink dagger, smaller is faster (sword speed as reference: 2.4)"));
-        return this;
-    }
-
-    @Override
-    public ModuleBlinkDagger activateRequiredInfinityLibModules() {
-        ModuleDualWield.getInstance().activate();
-        return this;
-    }
-
-    @Override
-    public ModuleBlinkDagger registerSounds() {
-        this.sound = RegisterHelper.registerSound(Reference.MOD_ID, this.getName());
         return this;
     }
 }

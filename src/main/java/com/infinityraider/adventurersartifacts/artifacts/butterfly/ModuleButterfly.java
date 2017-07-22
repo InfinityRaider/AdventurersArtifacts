@@ -1,16 +1,12 @@
 package com.infinityraider.adventurersartifacts.artifacts.butterfly;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
-import com.infinityraider.adventurersartifacts.reference.Reference;
+import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
 import com.infinityraider.adventurersartifacts.registry.ModPotionRegistry;
 import com.infinityraider.infinitylib.item.ItemBase;
-import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
-import com.infinityraider.infinitylib.utility.RegisterHelper;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.config.Configuration;
 
-public class ModuleButterfly implements IArtifactModuleWeaponWithAbility {
+public class ModuleButterfly extends ArtifactModuleWeaponWithAbility {
     private static final ModuleButterfly INSTANCE = new ModuleButterfly();
 
     public static ModuleButterfly getInstance() {
@@ -20,22 +16,12 @@ public class ModuleButterfly implements IArtifactModuleWeaponWithAbility {
     public final ItemBase itemButterfly;
     public final Potion potionFlutter;
 
-    private SoundEvent sound;
-
     private int duration;
-    private int cooldown;
-    private int attackDamage;
-    private double attackSpeed;
 
     @SuppressWarnings("unchecked")
     private ModuleButterfly() {
         this.itemButterfly = new ItemButterfly();
         this.potionFlutter = new PotionFlutter();
-    }
-
-    @Override
-    public SoundEvent getSound() {
-        return this.sound;
     }
 
     public int getDuration() {
@@ -44,39 +30,6 @@ public class ModuleButterfly implements IArtifactModuleWeaponWithAbility {
 
     public ModuleButterfly setDuration(int time) {
         this.duration = time <= 0 ? 0 : time;
-        return this;
-    }
-
-    @Override
-    public int getCooldown() {
-        return cooldown;
-    }
-
-    @Override
-    public ModuleButterfly setCooldown(int time) {
-        this.cooldown = time <= 0 ? 0 : time;
-        return this;
-    }
-
-    @Override
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    @Override
-    public ModuleButterfly setAttackDamage(int dmg) {
-        this.attackDamage = dmg < 0 ? 0 : dmg;
-        return this;
-    }
-
-    @Override
-    public double getAttackSpeed() {
-        return attackSpeed;
-    }
-
-    @Override
-    public ModuleButterfly setAttackSpeed(double speed) {
-        this.attackSpeed = speed < 0 ? 0 : speed;
         return this;
     }
 
@@ -101,18 +54,6 @@ public class ModuleButterfly implements IArtifactModuleWeaponWithAbility {
     @Override
     public ModuleButterfly registerPotions(ModPotionRegistry registry, Configuration modConfig) {
         registry.registerPotion(this.potionFlutter, this.getName(), modConfig, this.getName());
-        return this;
-    }
-
-    @Override
-    public ModuleButterfly activateRequiredInfinityLibModules() {
-        ModuleDualWield.getInstance().activate();
-        return this;
-    }
-
-    @Override
-    public ModuleButterfly registerSounds() {
-        this.sound = RegisterHelper.registerSound(Reference.MOD_ID, this.getName());
         return this;
     }
 }

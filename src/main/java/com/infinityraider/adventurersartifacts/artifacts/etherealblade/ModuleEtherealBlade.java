@@ -1,14 +1,10 @@
 package com.infinityraider.adventurersartifacts.artifacts.etherealblade;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
-import com.infinityraider.adventurersartifacts.reference.Reference;
+import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
 import com.infinityraider.infinitylib.entity.EntityRegistryEntry;
-import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
-import com.infinityraider.infinitylib.utility.RegisterHelper;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.config.Configuration;
 
-public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
+public class ModuleEtherealBlade extends ArtifactModuleWeaponWithAbility {
     private static final ModuleEtherealBlade INSTANCE = new ModuleEtherealBlade();
 
     public static ModuleEtherealBlade getInstance() {
@@ -18,12 +14,7 @@ public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
     public final ItemEtherealBlade itemEtherealBlade;
     public final EntityRegistryEntry<EntityGhostlyRemnant> entityGhostlyRemnant;
 
-    private SoundEvent sound;
-
     private int duration;
-    private int cooldown;
-    private int attackDamage;
-    private double attackSpeed;
 
     @SuppressWarnings("unchecked")
     private ModuleEtherealBlade() {
@@ -35,50 +26,12 @@ public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
                 .setRenderFactory(EntityGhostlyRemnant.RenderFactory.getInstance());
     }
 
-    @Override
-    public SoundEvent getSound() {
-        return this.sound;
-    }
-
     public int getDuration() {
         return duration;
     }
 
     public ModuleEtherealBlade setDuration(int time) {
         this.duration = time <= 0 ? 0 : time;
-        return this;
-    }
-
-    @Override
-    public int getCooldown() {
-        return cooldown;
-    }
-
-    @Override
-    public ModuleEtherealBlade setCooldown(int time) {
-        this.cooldown = time <= 0 ? 0 : time;
-        return this;
-    }
-
-    @Override
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    @Override
-    public ModuleEtherealBlade setAttackDamage(int dmg) {
-        this.attackDamage = dmg < 0 ? 0 : dmg;
-        return this;
-    }
-
-    @Override
-    public double getAttackSpeed() {
-        return attackSpeed;
-    }
-
-    @Override
-    public ModuleEtherealBlade setAttackSpeed(double speed) {
-        this.attackSpeed = speed < 0 ? 0 : speed;
         return this;
     }
 
@@ -97,18 +50,6 @@ public class ModuleEtherealBlade implements IArtifactModuleWeaponWithAbility {
                 "The attack damage of the ethereal blade (sword damage as reference: wood = 3 | stone = 4 | iron = 5 | diamond = 6"));
         this.setAttackSpeed(modConfig.getFloat("ethereal blade attack speed", this.getName(), 1.8F, 0, 10,
                 "The attack cooldown of the ethereal blade, smaller is faster (sword speed as reference: 2.4)"));
-        return this;
-    }
-
-    @Override
-    public ModuleEtherealBlade activateRequiredInfinityLibModules() {
-        ModuleDualWield.getInstance().activate();
-        return this;
-    }
-
-    @Override
-    public ModuleEtherealBlade registerSounds() {
-        this.sound = RegisterHelper.registerSound(Reference.MOD_ID, this.getName());
         return this;
     }
 }

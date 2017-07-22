@@ -9,7 +9,7 @@ public interface IArtifactModuleItemWithAbility extends IArtifactModule {
 
     int getCooldown();
 
-    IArtifactModuleWeaponWithAbility setCooldown(int cooldown);
+    ArtifactModuleWeaponWithAbility setCooldown(int cooldown);
 
     SoundEvent getSound();
 

@@ -1,20 +1,15 @@
 package com.infinityraider.adventurersartifacts.artifacts.shadowblade;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
-import com.infinityraider.adventurersartifacts.reference.Reference;
+import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
 import com.infinityraider.adventurersartifacts.registry.ModPotionRegistry;
-import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
-import com.infinityraider.infinitylib.proxy.base.IClientProxyBase;
-import com.infinityraider.infinitylib.proxy.base.IProxyBase;
-import com.infinityraider.infinitylib.utility.RegisterHelper;
+import com.infinityraider.infinitylib.proxy.base.*;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ModuleShadowBlade implements IArtifactModuleWeaponWithAbility {
+public class ModuleShadowBlade extends ArtifactModuleWeaponWithAbility {
     private static final ModuleShadowBlade INSTANCE = new ModuleShadowBlade();
 
     public static ModuleShadowBlade getInstance() {
@@ -24,21 +19,11 @@ public class ModuleShadowBlade implements IArtifactModuleWeaponWithAbility {
     public final ItemShadowBlade itemShadowBlade;
     public final Potion potionShadowBlade;
 
-    private SoundEvent sound;
-
     private int duration;
-    private int cooldown;
-    private int attackDamage;
-    private double attackSpeed;
 
     private ModuleShadowBlade() {
         this.itemShadowBlade = new ItemShadowBlade();
         this.potionShadowBlade = new PotionShadowBlade();
-    }
-
-    @Override
-    public SoundEvent getSound() {
-        return this.sound;
     }
 
     public int getDuration() {
@@ -47,39 +32,6 @@ public class ModuleShadowBlade implements IArtifactModuleWeaponWithAbility {
 
     public ModuleShadowBlade setDuration(int time) {
         this.duration = time <= 0 ? 0 : time;
-        return this;
-    }
-
-    @Override
-    public int getCooldown() {
-        return cooldown;
-    }
-
-    @Override
-    public ModuleShadowBlade setCooldown(int time) {
-        this.cooldown = time <= 0 ? 0 : time;
-        return this;
-    }
-
-    @Override
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    @Override
-    public ModuleShadowBlade setAttackDamage(int dmg) {
-        this.attackDamage = dmg < 0 ? 0 : dmg;
-        return this;
-    }
-
-    @Override
-    public double getAttackSpeed() {
-        return attackSpeed;
-    }
-
-    @Override
-    public ModuleShadowBlade setAttackSpeed(double speed) {
-        this.attackSpeed = speed < 0 ? 0 : speed;
         return this;
     }
 
@@ -124,18 +76,6 @@ public class ModuleShadowBlade implements IArtifactModuleWeaponWithAbility {
     @Override
     public ModuleShadowBlade registerPotions(ModPotionRegistry registry, Configuration modConfig) {
         registry.registerPotion(this.potionShadowBlade, this.getName(), modConfig, this.getName());
-        return this;
-    }
-
-    @Override
-    public ModuleShadowBlade activateRequiredInfinityLibModules() {
-        ModuleDualWield.getInstance().activate();
-        return this;
-    }
-
-    @Override
-    public ModuleShadowBlade registerSounds() {
-        this.sound = RegisterHelper.registerSound(Reference.MOD_ID, this.getName());
         return this;
     }
 }

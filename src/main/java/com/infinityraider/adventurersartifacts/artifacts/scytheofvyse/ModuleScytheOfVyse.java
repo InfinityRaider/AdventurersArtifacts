@@ -1,19 +1,14 @@
 package com.infinityraider.adventurersartifacts.artifacts.scytheofvyse;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
-import com.infinityraider.adventurersartifacts.reference.Reference;
+import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
 import com.infinityraider.adventurersartifacts.registry.ModPotionRegistry;
-import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
-import com.infinityraider.infinitylib.proxy.base.IClientProxyBase;
-import com.infinityraider.infinitylib.proxy.base.IProxyBase;
-import com.infinityraider.infinitylib.utility.RegisterHelper;
-import net.minecraft.util.SoundEvent;
+import com.infinityraider.infinitylib.proxy.base.*;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ModuleScytheOfVyse implements IArtifactModuleWeaponWithAbility {
+public class ModuleScytheOfVyse extends ArtifactModuleWeaponWithAbility {
     private static final ModuleScytheOfVyse INSTANCE = new ModuleScytheOfVyse();
 
     public static ModuleScytheOfVyse getInstance() {
@@ -23,22 +18,12 @@ public class ModuleScytheOfVyse implements IArtifactModuleWeaponWithAbility {
     public final ItemScytheOfVyse itemScytheOfVyse;
     public final PotionHex potionHex;
 
-    private SoundEvent sound;
-
     private int duration;
-    private int cooldown;
     private int range;
-    private int attackDamage;
-    private double attackSpeed;
 
     private ModuleScytheOfVyse() {
         this.itemScytheOfVyse = new ItemScytheOfVyse();
         this.potionHex = new PotionHex();
-    }
-
-    @Override
-    public SoundEvent getSound() {
-        return this.sound;
     }
 
     public int getDuration() {
@@ -50,45 +35,12 @@ public class ModuleScytheOfVyse implements IArtifactModuleWeaponWithAbility {
         return this;
     }
 
-    @Override
-    public int getCooldown() {
-        return cooldown;
-    }
-
-    @Override
-    public ModuleScytheOfVyse setCooldown(int time) {
-        this.cooldown = time <= 0 ? 0 : time;
-        return this;
-    }
-
     public int getRange() {
         return this.range;
     }
 
     public ModuleScytheOfVyse setRange(int range) {
         this.range = range < 0 ? 0 : range;
-        return this;
-    }
-
-    @Override
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    @Override
-    public ModuleScytheOfVyse setAttackDamage(int dmg) {
-        this.attackDamage = dmg < 0 ? 0 : dmg;
-        return this;
-    }
-
-    @Override
-    public double getAttackSpeed() {
-        return attackSpeed;
-    }
-
-    @Override
-    public ModuleScytheOfVyse setAttackSpeed(double speed) {
-        this.attackSpeed = speed < 0 ? 0 : speed;
         return this;
     }
 
@@ -134,18 +86,6 @@ public class ModuleScytheOfVyse implements IArtifactModuleWeaponWithAbility {
     @Override
     public ModuleScytheOfVyse registerPotions(ModPotionRegistry registry, Configuration modConfig) {
         registry.registerPotion(this.potionHex, this.getName(), modConfig, this.getName());
-        return this;
-    }
-
-    @Override
-    public ModuleScytheOfVyse activateRequiredInfinityLibModules() {
-        ModuleDualWield.getInstance().activate();
-        return this;
-    }
-
-    @Override
-    public ModuleScytheOfVyse registerSounds() {
-        this.sound = RegisterHelper.registerSound(Reference.MOD_ID, this.getName());
         return this;
     }
 }

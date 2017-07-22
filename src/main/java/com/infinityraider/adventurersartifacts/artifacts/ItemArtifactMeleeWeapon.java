@@ -50,7 +50,7 @@ public abstract class ItemArtifactMeleeWeapon extends ItemWithModelBase implemen
         this.setCreativeTab(AdventurersArtifacts.MOD_TAB);
     }
 
-    public abstract IArtifactModuleWeaponWithAbility getModule();
+    public abstract ArtifactModuleWeaponWithAbility getModule();
 
     public abstract TYPE getType();
 

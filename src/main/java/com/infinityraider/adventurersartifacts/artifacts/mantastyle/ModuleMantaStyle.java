@@ -1,20 +1,15 @@
 package com.infinityraider.adventurersartifacts.artifacts.mantastyle;
 
-import com.infinityraider.adventurersartifacts.artifacts.IArtifactModuleWeaponWithAbility;
-import com.infinityraider.adventurersartifacts.reference.Reference;
+import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
 import com.infinityraider.infinitylib.entity.EntityRegistryEntry;
-import com.infinityraider.infinitylib.modules.dualwield.ModuleDualWield;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
-import com.infinityraider.infinitylib.proxy.base.IClientProxyBase;
-import com.infinityraider.infinitylib.proxy.base.IProxyBase;
-import com.infinityraider.infinitylib.utility.RegisterHelper;
+import com.infinityraider.infinitylib.proxy.base.*;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ModuleMantaStyle implements IArtifactModuleWeaponWithAbility {
+public class ModuleMantaStyle extends ArtifactModuleWeaponWithAbility {
     private static final ModuleMantaStyle INSTANCE = new ModuleMantaStyle();
 
     public static ModuleMantaStyle getInstance() {
@@ -24,12 +19,7 @@ public class ModuleMantaStyle implements IArtifactModuleWeaponWithAbility {
     public final ItemMantaStyle itemMantaStyle;
     public final EntityRegistryEntry<EntityReplicate> entityReplicate;
 
-    private SoundEvent sound;
-
     private int lifeTime;
-    private int cooldown;
-    private int attackDamage;
-    private double attackSpeed;
 
     @SuppressWarnings("unchecked")
     private ModuleMantaStyle() {
@@ -43,50 +33,12 @@ public class ModuleMantaStyle implements IArtifactModuleWeaponWithAbility {
                 .setEntityTargetedBy(EntityMob.class);
     }
 
-    @Override
-    public SoundEvent getSound() {
-        return this.sound;
-    }
-
     public int getDuration() {
         return lifeTime;
     }
 
     public ModuleMantaStyle setDuration(int time) {
         this.lifeTime = time <= 0 ? 0 : time;
-        return this;
-    }
-
-    @Override
-    public int getCooldown() {
-        return cooldown;
-    }
-
-    @Override
-    public ModuleMantaStyle setCooldown(int time) {
-        this.cooldown = time <= 0 ? 0 : time;
-        return this;
-    }
-
-    @Override
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    @Override
-    public ModuleMantaStyle setAttackDamage(int dmg) {
-        this.attackDamage = dmg < 0 ? 0 : dmg;
-        return this;
-    }
-
-    @Override
-    public double getAttackSpeed() {
-        return attackSpeed;
-    }
-
-    @Override
-    public ModuleMantaStyle setAttackSpeed(double speed) {
-        this.attackSpeed = speed < 0 ? 0 : speed;
         return this;
     }
 
@@ -124,18 +76,6 @@ public class ModuleMantaStyle implements IArtifactModuleWeaponWithAbility {
     @SideOnly(Side.CLIENT)
     public ModuleMantaStyle registerEventHandlersClient(IClientProxyBase proxy) {
         proxy.registerEventHandler(PlayerMovementTrackingHandler.getInstance());
-        return this;
-    }
-
-    @Override
-    public ModuleMantaStyle activateRequiredInfinityLibModules() {
-        ModuleDualWield.getInstance().activate();
-        return this;
-    }
-
-    @Override
-    public ModuleMantaStyle registerSounds() {
-        this.sound = RegisterHelper.registerSound(Reference.MOD_ID, this.getName());
         return this;
     }
 }
