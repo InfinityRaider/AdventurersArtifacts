@@ -6,6 +6,7 @@ item.adventurers_artifacts:ethereal_blade.name=Ethereal Blade
 item.adventurers_artifacts:hurricane_pike.name=Hurricane Pike
 item.adventurers_artifacts:scythe_of_vyse.name=Scythe of Vyse
 item.adventurers_artifacts:manta_style.name=Manta Style
+item.adventurers_artifacts:mjollnir.name=Mjollnir
 item.adventurers_artifacts:shadow_blade.name=Shadow Blade
 
 
@@ -52,6 +53,9 @@ adventurers_artifacts.tooltip.manta_style_help_l1=Should be dual wielded for ful
 adventurers_artifacts.tooltip.manta_style_help_l2=Use <Sneak> + click to create an illusion for each manta style
 adventurers_artifacts.tooltip.manta_style_help_l3=Use <Sprint> + click to swap with target illusion of yourself
 
+adventurers_artifacts.tooltip.mjollnir_main=Thor's magical hammer, made for him by the dwarves Brok and Eitri
+adventurers_artifacts.tooltip.mjollnir_help_l1=Use <Sneak> + click to invoke lightning
+
 adventurers_artifacts.tooltip.shadow_blade_main=The blade of a fallen king, it allows you to move unseen and strike from the shadows
 adventurers_artifacts.tooltip.shadow_blade_help_l1=Use <Sneak> + click to become fully invisible, interacting with the world will break invisibility
 
@@ -63,5 +67,6 @@ adventurers_artifacts.subtitle.butterfly=<Butterfly Sound>
 adventurers_artifacts.subtitle.ethereal_blade=<Ethereal Blade Sound>
 adventurers_artifacts.subtitle.hurricane_pike=<Hurricane Pike Sound>
 adventurers_artifacts.subtitle.manta_style=<Manta Style Sound>
+adventurers_artifacts.subtitle.mjollnir=<Mjollnir Sound>
 adventurers_artifacts.subtitle.scythe_of_vyse=<Scythe of Vyse Sound>
 adventurers_artifacts.subtitle.shadow_blade=<Shadow Blade Sound>

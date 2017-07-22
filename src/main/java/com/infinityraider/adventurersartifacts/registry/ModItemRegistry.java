@@ -5,6 +5,7 @@ import com.infinityraider.adventurersartifacts.artifacts.butterfly.ModuleButterf
 import com.infinityraider.adventurersartifacts.artifacts.etherealblade.ModuleEtherealBlade;
 import com.infinityraider.adventurersartifacts.artifacts.hurricanepike.ModuleHurricanePike;
 import com.infinityraider.adventurersartifacts.artifacts.mantastyle.ModuleMantaStyle;
+import com.infinityraider.adventurersartifacts.artifacts.mjollnir.ModuleMjollnir;
 import com.infinityraider.adventurersartifacts.artifacts.scytheofvyse.ModuleScytheOfVyse;
 import com.infinityraider.adventurersartifacts.artifacts.shadowblade.ModuleShadowBlade;
 import net.minecraft.item.Item;
@@ -22,6 +23,7 @@ public class ModItemRegistry {
         this.itemEtherealBlade = ModuleEtherealBlade.getInstance().itemEtherealBlade;
         this.itemHurricanePike = ModuleHurricanePike.getInstance().itemHurricanePike;
         this.itemMantaStyle = ModuleMantaStyle.getInstance().itemMantaStyle;
+        this.itemMjollnir = ModuleMjollnir.getInstance().itemMjollnir;
         this.itemScytheOfVyse = ModuleScytheOfVyse.getInstance().itemScytheOfVyse;
         this.itemShadowBlade = ModuleShadowBlade.getInstance().itemShadowBlade;
     }
@@ -31,6 +33,7 @@ public class ModItemRegistry {
     public final Item itemEtherealBlade;
     public final Item itemHurricanePike;
     public final Item itemMantaStyle;
+    public final Item itemMjollnir;
     public final Item itemScytheOfVyse;
     public final Item itemShadowBlade;
 }

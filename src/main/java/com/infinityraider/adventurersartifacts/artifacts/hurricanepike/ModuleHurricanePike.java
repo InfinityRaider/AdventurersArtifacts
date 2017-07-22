@@ -47,9 +47,9 @@ public class ModuleHurricanePike extends ArtifactModuleWeaponWithAbility {
                 "The range from which hurricane pike can affect a target"));
         this.setCooldown(modConfig.getInt("hurricane pike cooldown", this.getName(), 300, 0, 9000000,
                 "The cooldown of using hurricane pike's push in ticks"));
-        this.setAttackDamage(modConfig.getInt("hurricane pike attack damage", this.getName(), 3, 0, 20,
+        this.setAttackDamage(modConfig.getInt("hurricane pike attack damage", this.getName(), 9, 0, 20,
                 "The attack damage of the hurricane pike (sword damage as reference: wood = 3 | stone = 4 | iron = 5 | diamond = 6"));
-        this.setAttackSpeed(modConfig.getFloat("hurricane pike attack speed", this.getName(), 0.6F, 0, 10,
+        this.setAttackSpeed(modConfig.getFloat("hurricane pike attack speed", this.getName(), 3.0F, 0, 10,
                 "The attack cooldown of the hurricane pike, smaller is faster (sword speed as reference: 2.4)"));
         return this;
     }
