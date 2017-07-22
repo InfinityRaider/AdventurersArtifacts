@@ -15,6 +15,7 @@ public class ModuleBlinkDagger extends ArtifactModuleWeaponWithAbility {
     private int range;
 
     private ModuleBlinkDagger() {
+        super("blink_dagger");
         this.itemBlinkDagger = new ItemBlinkDagger();
     }
 
@@ -25,11 +26,6 @@ public class ModuleBlinkDagger extends ArtifactModuleWeaponWithAbility {
     public ModuleBlinkDagger setRange(int range) {
         this.range = range <= 0 ? 0 : range;
         return this;
-    }
-
-    @Override
-    public String getName() {
-        return "blink_dagger";
     }
 
     @Override

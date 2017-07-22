@@ -16,6 +16,7 @@ public class ModuleHurricanePike extends ArtifactModuleWeaponWithAbility {
     private int range;
 
     private ModuleHurricanePike() {
+        super("hurricane_pike");
         this.itemHurricanePike = new ItemHurricanePike();
     }
 
@@ -35,11 +36,6 @@ public class ModuleHurricanePike extends ArtifactModuleWeaponWithAbility {
     public ModuleHurricanePike setRange(int range) {
         this.range = range <= 0 ? 0 : range;
         return this;
-    }
-
-    @Override
-    public String getName() {
-        return "hurricane_pike";
     }
 
     @Override

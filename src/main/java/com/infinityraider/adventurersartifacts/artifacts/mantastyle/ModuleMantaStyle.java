@@ -3,7 +3,7 @@ package com.infinityraider.adventurersartifacts.artifacts.mantastyle;
 import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
 import com.infinityraider.infinitylib.entity.EntityRegistryEntry;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
-import com.infinityraider.infinitylib.proxy.base.*;
+import com.infinityraider.infinitylib.proxy.base.IClientProxyBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.relauncher.Side;
@@ -23,9 +23,9 @@ public class ModuleMantaStyle extends ArtifactModuleWeaponWithAbility {
 
     @SuppressWarnings("unchecked")
     private ModuleMantaStyle() {
-        itemMantaStyle = new ItemMantaStyle();
-
-        entityReplicate = new EntityRegistryEntry<>(EntityReplicate.class, "entity.replicate")
+        super("manta_style");
+        this.itemMantaStyle = new ItemMantaStyle();
+        this.entityReplicate = new EntityRegistryEntry<>(EntityReplicate.class, "entity.replicate")
                 .setTrackingDistance(64)
                 .setUpdateFrequency(1)
                 .setVelocityUpdates(true)
@@ -40,11 +40,6 @@ public class ModuleMantaStyle extends ArtifactModuleWeaponWithAbility {
     public ModuleMantaStyle setDuration(int time) {
         this.lifeTime = time <= 0 ? 0 : time;
         return this;
-    }
-
-    @Override
-    public String getName() {
-        return "manta_style";
     }
 
     @Override
@@ -64,11 +59,6 @@ public class ModuleMantaStyle extends ArtifactModuleWeaponWithAbility {
     public ModuleMantaStyle registerMessages(INetworkWrapper networkWrapper) {
         networkWrapper.registerMessage(MessageTrackPlayer.class);
         networkWrapper.registerMessage(MessageTrackPlayerUpdate.class);
-        return this;
-    }
-
-    @Override
-    public ModuleMantaStyle registerEventHandlers(IProxyBase proxy) {
         return this;
     }
 

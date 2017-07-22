@@ -6,6 +6,7 @@ import com.infinityraider.infinitylib.utility.RegisterHelper;
 import net.minecraft.util.SoundEvent;
 
 public abstract class ArtifactModuleWeaponWithAbility implements IArtifactModuleItemWithAbility {
+    private final String name;
 
     private SoundEvent sound;
 
@@ -13,12 +14,21 @@ public abstract class ArtifactModuleWeaponWithAbility implements IArtifactModule
     private int attackDamage;
     private double attackSpeed;
 
-    protected  ArtifactModuleWeaponWithAbility() {}
+    protected  ArtifactModuleWeaponWithAbility(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
 
     @Override
     public SoundEvent getSound() {
         return this.sound;
-    } @Override
+    }
+
+    @Override
     public int getCooldown() {
         return cooldown;
     }

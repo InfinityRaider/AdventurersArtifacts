@@ -18,8 +18,9 @@ public class ModuleEtherealBlade extends ArtifactModuleWeaponWithAbility {
 
     @SuppressWarnings("unchecked")
     private ModuleEtherealBlade() {
+        super("ethereal_blade");
         this.itemEtherealBlade = new ItemEtherealBlade();
-        entityGhostlyRemnant = new EntityRegistryEntry<>(EntityGhostlyRemnant.class, "entity.ghostly_remnant")
+        this.entityGhostlyRemnant = new EntityRegistryEntry<>(EntityGhostlyRemnant.class, "entity.ghostly_remnant")
                 .setTrackingDistance(64)
                 .setUpdateFrequency(1)
                 .setVelocityUpdates(true)
@@ -33,11 +34,6 @@ public class ModuleEtherealBlade extends ArtifactModuleWeaponWithAbility {
     public ModuleEtherealBlade setDuration(int time) {
         this.duration = time <= 0 ? 0 : time;
         return this;
-    }
-
-    @Override
-    public String getName() {
-        return "ethereal_blade";
     }
 
     @Override

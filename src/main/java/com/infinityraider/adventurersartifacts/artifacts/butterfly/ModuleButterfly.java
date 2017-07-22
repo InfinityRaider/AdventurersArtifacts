@@ -18,8 +18,8 @@ public class ModuleButterfly extends ArtifactModuleWeaponWithAbility {
 
     private int duration;
 
-    @SuppressWarnings("unchecked")
     private ModuleButterfly() {
+        super("butterfly");
         this.itemButterfly = new ItemButterfly();
         this.potionFlutter = new PotionFlutter();
     }
@@ -31,11 +31,6 @@ public class ModuleButterfly extends ArtifactModuleWeaponWithAbility {
     public ModuleButterfly setDuration(int time) {
         this.duration = time <= 0 ? 0 : time;
         return this;
-    }
-
-    @Override
-    public String getName() {
-        return "butterfly";
     }
 
     @Override

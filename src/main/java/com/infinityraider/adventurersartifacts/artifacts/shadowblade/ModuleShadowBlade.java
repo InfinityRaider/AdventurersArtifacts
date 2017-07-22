@@ -22,6 +22,7 @@ public class ModuleShadowBlade extends ArtifactModuleWeaponWithAbility {
     private int duration;
 
     private ModuleShadowBlade() {
+        super("shadow_blade");
         this.itemShadowBlade = new ItemShadowBlade();
         this.potionShadowBlade = new PotionShadowBlade();
     }
@@ -33,11 +34,6 @@ public class ModuleShadowBlade extends ArtifactModuleWeaponWithAbility {
     public ModuleShadowBlade setDuration(int time) {
         this.duration = time <= 0 ? 0 : time;
         return this;
-    }
-
-    @Override
-    public String getName() {
-        return "shadow_blade";
     }
 
     @Override

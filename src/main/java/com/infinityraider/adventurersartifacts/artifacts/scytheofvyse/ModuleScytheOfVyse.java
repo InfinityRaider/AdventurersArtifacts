@@ -22,6 +22,7 @@ public class ModuleScytheOfVyse extends ArtifactModuleWeaponWithAbility {
     private int range;
 
     private ModuleScytheOfVyse() {
+        super("scythe_of_vyse");
         this.itemScytheOfVyse = new ItemScytheOfVyse();
         this.potionHex = new PotionHex();
     }
@@ -42,11 +43,6 @@ public class ModuleScytheOfVyse extends ArtifactModuleWeaponWithAbility {
     public ModuleScytheOfVyse setRange(int range) {
         this.range = range < 0 ? 0 : range;
         return this;
-    }
-
-    @Override
-    public String getName() {
-        return "scythe_of_vyse";
     }
 
     @Override
