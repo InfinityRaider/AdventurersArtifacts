@@ -3,6 +3,7 @@ package com.infinityraider.adventurersartifacts.artifacts.scytheofvyse;
 import com.infinityraider.adventurersartifacts.artifacts.ArtifactModuleWeaponWithAbility;
 import com.infinityraider.adventurersartifacts.reference.Names;
 import com.infinityraider.adventurersartifacts.registry.ModPotionRegistry;
+import com.infinityraider.infinitylib.modules.entitylistener.ModuleEntityListener;
 import com.infinityraider.infinitylib.network.INetworkWrapper;
 import com.infinityraider.infinitylib.proxy.base.*;
 import net.minecraftforge.common.config.Configuration;
@@ -70,6 +71,7 @@ public class ModuleScytheOfVyse extends ArtifactModuleWeaponWithAbility {
     @Override
     public ModuleScytheOfVyse registerEventHandlers(IProxyBase proxy) {
         proxy.registerEventHandler(HexedHandler.getInstance());
+        proxy.registerEventHandler(DropScytheHandler.getInstance());
         return this;
     }
 
@@ -84,5 +86,11 @@ public class ModuleScytheOfVyse extends ArtifactModuleWeaponWithAbility {
     public ModuleScytheOfVyse registerPotions(ModPotionRegistry registry, Configuration modConfig) {
         registry.registerPotion(this.potionHex, this.getName(), modConfig, this.getName());
         return this;
+    }
+
+    @Override
+    public ArtifactModuleWeaponWithAbility activateRequiredInfinityLibModules() {
+        ModuleEntityListener.getInstance().activate();
+        return super.activateRequiredInfinityLibModules();
     }
 }

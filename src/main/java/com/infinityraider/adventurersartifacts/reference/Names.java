@@ -21,5 +21,6 @@ public class Names {
         public static final String Z = "AA_Z";
         public static final String YAW = "AA_yaw";
         public static final String PITCH = "AA_pitch";
+        public static final String LIGHTNING = "AA_lightning";
     }
 }
